@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.outputLabel = new System.Windows.Forms.Label();
             this.blueText = new System.Windows.Forms.Label();
             this.redText = new System.Windows.Forms.Label();
@@ -151,8 +152,9 @@
             this.Controls.Add(this.blueText);
             this.Controls.Add(this.outputLabel);
             this.Controls.Add(this.labelImage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "MultiChoice Adventure";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);

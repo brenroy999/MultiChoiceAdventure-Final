@@ -12,14 +12,14 @@ namespace MultiChoiceAdventure
 {
     public partial class Form1 : Form
     {
-        int scene = 0;
-        bool keyPresent = false;
-        Random randGen = new Random();
+        int scene = 0; //scene number
+        bool keyPresent = false; //Key presence checker
+        Random randGen = new Random(); //Random number generator
         public Form1()
         {
             InitializeComponent();
 
-            //
+            //All default text and background settings
 
             outputLabel.Text = "You begin daydreaming in class, and wake up to a sudden snap of a ruler on your desk. " +
                 "\nYou open your eyes, and everyone is missing, with no trace.";
@@ -32,19 +32,20 @@ namespace MultiChoiceAdventure
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            int randNum = randGen.Next(1, 11);
-            if (e.KeyCode == Keys.M) //Red 
+            int randNum = randGen.Next(1, 11); //Call random number
+            if (e.KeyCode == Keys.M) //Red input
             {
-                if (scene == 0)
+                if (scene == 0) //check scene
                 {
-                    scene = 1;
+                    scene = 1;  //scene number
+                    //Scene text and background
                     outputLabel.Text = "You run out through the door, looking both ways down the hall," +
                         "\nstill seeing no one around.";
                     redText.Text = "Continue.";
                     blueText.Text = "N/A";
                     labelImage.Image = Properties.Resources.hallway;
                 }
-                else if (scene == 1 | scene == 4)
+                else if (scene == 1 | scene == 4) //Check for either scene
                 {
                     labelImage.Image = Properties.Resources.field;
                     scene = 5;
@@ -201,19 +202,20 @@ namespace MultiChoiceAdventure
                     outputLabel.Text = "Figure gets around you block and knocks you out.";
                     redText.Text = "Continue.";
                     blueText.Text = "N/A";
-                    labelImage.Image = null;
+                    labelImage.Image = null; //remove background
                 }
 
                 else if (scene == 99)
                 {
                     scene = 100;
-                    labelImage.Image = null;
+                    labelImage.Image = null; //remove background
                     outputLabel.Text = "Restart?";
                     redText.Text = "Yes.";
                     blueText.Text = "No.";
                 }
                 else if (scene == 100)
                 {
+                    //Program defaults for reset
                     outputLabel.Text = "You begin daydreaming in class, and wake up to a sudden snap of a ruler on your desk. " +
                    "\nYou open your eyes, and everyone is missing, with no trace.";
                     blueText.Text = "Investigate room.";
@@ -329,7 +331,7 @@ namespace MultiChoiceAdventure
                 }
                 else if (scene ==100)
                 {
-                    Application.Exit();
+                    Application.Exit(); //Program close
                 }
             }
             if (e.KeyCode == Keys.N)
@@ -337,7 +339,7 @@ namespace MultiChoiceAdventure
                 if (scene == 2)
                 {
                     scene = 7;
-                    outputLabel.Text = "You go back to sleep, deciding not to explore.l";
+                    outputLabel.Text = "You go back to sleep, deciding not to explore.";
                     yellowText.Text = "N/A";
                     redText.Text = "Continue.";
                     blueText.Text = "N/A";
